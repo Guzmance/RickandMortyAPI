@@ -30,6 +30,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 body {
@@ -37,7 +38,7 @@ body {
 }
 /* Globales */
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -124,14 +125,14 @@ header form {
   stroke: #555;
 }
 
-/* Card List Pokemon */
-.card-list-pokemon {
+/* Card List Character */
+.card-list-character {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
-.card-pokemon {
+.card-character {
   cursor: pointer;
   text-decoration: none;
 }
@@ -159,7 +160,7 @@ header form {
   color: #333;
 }
 
-.pokemon-id {
+.character-id {
   display: block;
   color: #888;
   margin-bottom: 15px;
@@ -178,77 +179,16 @@ header form {
   color: #fff;
 }
 
-/* Types of Pokemon */
-.water {
+/* Types of character*/
+.genero {
   background-color: var(--color-water);
 }
 
-.grass {
+.status {
   background-color: var(--color-grass);
 }
-
-.poison {
-  background-color: var(--color-poison);
-}
-
-.fire {
-  background-color: var(--color-fire);
-}
-
-.bug {
-  background-color: var(--color-bug);
-}
-
-.dragon {
-  background: var(--color-dragon);
-}
-
-.flying {
-  background-color: var(--color-flying);
-}
-
-.ground {
-  background-color: var(--color-ground);
-}
-
-.steel {
-  background-color: var(--color-steel);
-}
-
-.psychic {
-  background-color: var(--color-psychic);
-}
-
-.ice {
-  background-color: var(--color-ice);
-}
-
-.ghost {
-  background-color: var(--color-ghost);
-}
-
-.normal {
-  background-color: var(--color-normal);
-}
-
-.rock {
+.specie {
   background-color: var(--color-rock);
-}
-
-.electric {
-  background-color: var(--color-electric);
-}
-
-.fighting {
-  background-color: var(--color-fighting);
-}
-
-.fairy {
-  background-color: var(--color-fairy);
-}
-
-.dark {
-  background-color: var(--color-dark);
 }
 
 /* Container Filters */
@@ -301,7 +241,7 @@ Styles of Pokemon Single Page
 ======================================= 
 */
 
-.main-pokemon {
+.main-character {
   display: flex;
   flex-direction: column;
 
@@ -309,7 +249,7 @@ Styles of Pokemon Single Page
   margin-bottom: 50px;
 }
 
-.header-main-pokemon {
+.header-main-character {
   margin-top: 20px;
 
   display: flex;
@@ -318,7 +258,7 @@ Styles of Pokemon Single Page
   position: relative;
 }
 
-.number-pokemon {
+.number-character {
   position: absolute;
   top: -130px;
   left: 0;
@@ -328,19 +268,20 @@ Styles of Pokemon Single Page
   color: var(--color-primary-hover);
 }
 
-.container-img-pokemon {
+.container-img-character {
   order: 2;
   flex: 1;
+  margin-left: 40px;
   padding: 25px 25px 25px 0;
-  height: 400px;
+  height: 500px;
 }
 
-.container-img-pokemon img {
+.container-img-character img {
   height: 100%;
   width: 100%;
 }
 
-.container-info-pokemon {
+.container-info-character {
   display: flex;
   flex-direction: column;
 
@@ -348,15 +289,16 @@ Styles of Pokemon Single Page
   flex: 1;
 }
 
-.container-info-pokemon h1 {
-  text-align: right;
+.container-info-character h1 {
+  text-align: center;
   font-size: 60px;
 }
 
-.info-pokemon {
+.info-character {
   display: flex;
   justify-content: space-between;
-
+  gap: 1.8em;
+  text-align: center;
   margin-top: 20px;
 }
 

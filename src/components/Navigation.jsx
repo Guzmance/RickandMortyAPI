@@ -1,6 +1,21 @@
-import { Link, Outlet } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { RicknMortyContext } from '../context/RicknMortyContext';
 
 export const Navigation = () => {
+  const { onInputChange, valueSearch, onResetForm } =
+    useContext(RicknMortyContext);
+
+  const navigate = useNavigate();
+
+  const onSearchSubmit = (e) => {
+    e.preventDefault();
+    navigate('/search', {
+      state: valueSearch,
+    });
+    onResetForm();
+  };
+
   return (
     <>
       <header className="container">
@@ -11,8 +26,8 @@ export const Navigation = () => {
             style={{ width: '250px', height: '75px' }}
           />
         </Link>
-        {/**onSubmit={onSearchSubmit} */}
-        <form>
+
+        <form onSubmit={onSearchSubmit}>
           <div className="form-group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -32,8 +47,8 @@ export const Navigation = () => {
               type="search"
               name="valueSearch"
               id=""
-              //value={valueSearch}
-              //onChange={onInputChange}
+              value={valueSearch}
+              onChange={onInputChange}
               placeholder="Buscar nombre de personaje"
             />
           </div>
