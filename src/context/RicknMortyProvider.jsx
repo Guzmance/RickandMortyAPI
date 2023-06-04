@@ -16,9 +16,8 @@ export const RicknMortyProvider = ({ children }) => {
   const [active, setActive] = useState(false);
 
   // Get Characters per Page
-  const getAllCharacters = async (/*status = 'alive', species = 'human'*/) => {
+  const getAllCharacters = async () => {
     const baseURL = 'https://rickandmortyapi.com/api/';
-    /*status=${status}&species=${species}&*/
     const res = await fetch(`${baseURL}character/?page=${offset} `);
     const data = await res.json();
     const promises = data.results.map(async (ricknmorty) => {
@@ -62,11 +61,60 @@ export const RicknMortyProvider = ({ children }) => {
 
   useEffect(() => {
     getAllCharacters();
-  }, []);
+  }, [offset]);
 
   useEffect(() => {
     getGlobalCharacters();
   }, []);
+
+  // BTN CARGAR MÁS
+  const onClickLoadMore = () => {
+    setOffset(offset + 1);
+  };
+  // Filter Function + State
+  const [typeSelected, setTypeSelected] = useState({
+    Human: false,
+    Alien: false,
+    Mythyrian: false,
+    Robot: false,
+    Cronenberg: false,
+    Disease: false,
+    Dog: false,
+    Cat: false,
+    Mythological: false,
+    Unknown: false,
+    Poopybutthole: false,
+    Humanoid: false,
+    Vampire: false,
+    Gazorpian: false,
+    Gearhead: false,
+    Gromflomite: false,
+    Florauna: false,
+    Krootabulan: false,
+    Zigerion: false,
+    Dinosaur: false,
+  });
+
+  const [filteredCharacters, setfilteredCharacters] = useState([]);
+
+  const handleCheckbox = (e) => {
+    setTypeSelected({
+      ...typeSelected,
+      [e.target.name]: e.target.checked,
+    });
+
+    if (e.target.checked) {
+      const filteredResults = globalCharacters.filter((character) =>
+        character.species.includes(e.target.name)
+      );
+      setfilteredCharacters([...filteredCharacters, ...filteredResults]);
+    } else {
+      const filteredResults = filteredCharacters.filter(
+        (character) => !character.species.includes(e.target.name)
+      );
+      setfilteredCharacters([...filteredResults]);
+    }
+  };
 
   return (
     <RicknMortyContext.Provider
@@ -77,6 +125,16 @@ export const RicknMortyProvider = ({ children }) => {
         allCharacters,
         globalCharacters,
         getCharacterById,
+        onClickLoadMore,
+        // Loader
+        loading,
+        setLoading,
+        // Btn Filter
+        active,
+        setActive,
+        // Filter Container Checkbox
+        handleCheckbox,
+        filteredCharacters,
       }}
     >
       {children}

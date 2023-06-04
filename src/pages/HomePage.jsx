@@ -1,12 +1,13 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import { RicknMortyContext } from '../context/RicknMortyContext';
 import { RicknMortyList, FilterBar } from '../components';
 
 const HomePage = () => {
+  const { onClickLoadMore, active, setActive } = useContext(RicknMortyContext);
   return (
     <>
       <div className="container-filter container">
-        <div className="icon-filter">
+        <div className="icon-filter" onClick={() => setActive(!active)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -26,6 +27,11 @@ const HomePage = () => {
       </div>
       <RicknMortyList />
       <FilterBar />
+      <div className="container-btn-load-more container">
+        <button className="btn-load-more" onClick={onClickLoadMore}>
+          Cargar más
+        </button>
+      </div>
     </>
   );
 };
