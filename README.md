@@ -14,11 +14,6 @@ Esta es una aplicación de muestra que utiliza la API de Rick and Morty para mos
 - Vite: Un entorno de desarrollo rápido y optimizado para aplicaciones web.
 - API de Rick and Morty: Se utiliza la API de Rick and Morty para obtener los datos de los personajes.
 
-## Capturas de pantalla
-
-![Captura de pantalla 1](/screenshots/screenshot1.png)
-![Captura de pantalla 2](/screenshots/screenshot2.png)
-
 ## Instalación
 
 1. Clona el repositorio: `git clone https://github.com/guzmance/RickandMortyAPI.git`
