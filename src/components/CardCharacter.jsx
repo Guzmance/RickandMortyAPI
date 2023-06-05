@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function CardCharacter({ character }) {
   return (
-    <Link to={`rickandmorty/${character.id}`} className="card-pokemon">
+    <Link to={`rickandmorty/${character.id}`} className="card-character">
       <div className="card-img">
         <img src={character.image} alt={`Character: ${character.name}`} />
       </div>

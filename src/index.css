@@ -1,28 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
 
 :root {
-  --color-fire: #ff7402;
   --color-grass: #9bcc50;
-  --color-steel: #9eb7b8;
   --color-water: #4592c4;
-  --color-psychic: #f366b9;
-  --color-ground: #ab9842;
-  --color-ice: #51c4e7;
-  --color-flying: #3dc7ef;
-  --color-ghost: #4d5b64;
-  --color-normal: #a4acaf;
-  --color-poison: #7e0058;
   --color-rock: #a38c21;
-  --color-fighting: #d56723;
-  --color-dark: #707070;
-  --color-bug: #729f3f;
-  --color-dragon: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
-  --color-electric: #bba909;
-  --color-fairy: #fdb9e9;
-  --color-shadow: #7b62a3;
-  --color-unknow: #757575;
-
-  --color-primary: #006d77;
+  --color-primary: #13565c;
   --color-primary-hover: #83c5be;
 }
 
@@ -35,11 +17,14 @@
 
 body {
   font-family: 'Montserrat';
+  background-image: url('/src/assets/wall.jpg');
 }
+
 /* Globales */
 .container {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
+  padding: 30px;
 }
 
 /* Header */
@@ -47,8 +32,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 40px 0;
 }
 
 .logo img {
@@ -58,15 +41,14 @@ header {
 header form {
   display: flex;
   align-items: center;
-
-  gap: 15px;
+  gap: 20px;
 }
 
 .form-group {
   display: flex;
   align-items: center;
   gap: 10px;
-
+  background: white;
   border: 1px solid #555;
   padding: 15px 20px;
   border-radius: 25px;
@@ -108,33 +90,53 @@ header form {
 /* Btn Filter */
 .container-filter {
   display: flex;
+  justify-content: flex-end;
 }
 
 .icon-filter {
   display: flex;
   align-items: center;
-  gap: 15px;
-
-  margin-bottom: 20px;
+  gap: 0.5em;
+  background: white;
+  color: black;
+  margin-bottom: 10px;
   cursor: pointer;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding-right: 10px;
+
+  box-shadow: 0 0 5px white;
 }
 
 .icon-filter .icon {
-  width: 30px;
-  height: 30px;
-  stroke: #555;
+  width: 35px;
+  height: 35px;
+  color: black;
+  stroke: black;
 }
 
 /* Card List Character */
 .card-list-character {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
 }
 
 .card-character {
+  width: 20em;
+  background-color: white !important;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 15px;
+  box-shadow: 0 0 10px white;
+  overflow: hidden;
+
+  justify-items: center;
+  align-items: center;
+  text-align: center;
 }
 
 .card-img {
@@ -168,8 +170,10 @@ header form {
 
 .card-types {
   display: flex;
-  gap: 10px;
   margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: space-between;
 }
 
 .card-types span {
@@ -201,8 +205,8 @@ header form {
   left: -300px;
   width: 250px;
 
-  color: #555;
-  background-color: #f2f2f2;
+  color: white;
+  background-color: var(--color-primary);
   height: 100%;
   padding-top: 140px;
   transition: all 0.3s linear;
@@ -237,14 +241,13 @@ header form {
 
 /* 
 ======================================= 
-Styles of Pokemon Single Page
+Styles of Character Single Page
 ======================================= 
 */
 
 .main-character {
   display: flex;
   flex-direction: column;
-
   margin-top: 100px;
   margin-bottom: 50px;
 }
@@ -262,8 +265,7 @@ Styles of Pokemon Single Page
   position: absolute;
   top: -130px;
   left: 0;
-
-  font-size: 200px;
+  font-size: 150px;
   font-weight: 700;
   color: var(--color-primary-hover);
 }
@@ -279,12 +281,18 @@ Styles of Pokemon Single Page
 .container-img-character img {
   height: 100%;
   width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 20px white;
 }
 
 .container-info-character {
   display: flex;
   flex-direction: column;
+  color: black;
+  -webkit-text-stroke-width: 1px; /* Ancho del borde */
+  -webkit-text-stroke-color: white;
 
+  background: black;
   order: 1;
   flex: 1;
 }
@@ -300,6 +308,7 @@ Styles of Pokemon Single Page
   gap: 1.8em;
   text-align: center;
   margin-top: 20px;
+  color: white;
 }
 
 .group-info {
